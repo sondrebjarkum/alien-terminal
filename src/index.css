@@ -1,0 +1,329 @@
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: Apple;
+  src: url("assets/fonts/apple-2a-scanline.otf");
+}
+
+.display-gradient {
+  /* #001E17, #001E17, #00100c */
+  background: radial-gradient(circle, #01261d 0%, #001e17 100%);
+}
+.colorTester {
+  color: #8eb473;
+}
+:root {
+  --flicker-1: rgba(0, 30, 255, 0.5);
+  --flicker-2: rgba(255, 0, 80, 0.3);
+}
+
+body {
+  margin: 0;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span {
+  text-shadow: 0 0 8px rgba(150, 228, 225, 0.7),
+    0 0 17px rgba(150, 228, 225, 0.4) !important;
+  text-transform: uppercase;
+  font-family: "Apple";
+}
+
+p {
+  font-size: 0.75rem;
+}
+h1 {
+  font-size: 1.25rem;
+}
+small {
+  font-size: 0.55rem;
+  text-shadow: 0 0 3px rgba(150, 228, 225, 0.7),
+    0 0 7px rgba(150, 228, 225, 0.4) !important;
+}
+
+.border-glow {
+  box-shadow: inset 0 0 5px rgba(33, 73, 64, 0.7),
+    inset 0 0 15px rgba(33, 73, 64, 0.3), 0 0 5px rgba(33, 73, 64, 0.7),
+    0 0 15px rgba(33, 73, 64, 0.3);
+}
+
+.fadeInLag {
+  animation: fadeInLag 0.7s steps(7, end) forwards;
+}
+
+@keyframes fadeInLag {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  /* 10% {
+    opacity: 0.1;
+    transform: translateY(-27px);
+  }
+  20% {
+    opacity: 0.2;
+    transform: translateY(-23px);
+  }
+  30% {
+    opacity: 0.3;
+    transform: translateY(-20px);
+  }
+  40% {
+    opacity: 0.4;
+    transform: translateY(-17px);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(-13px);
+  }
+  60% {
+    opacity: 0.6;
+    transform: translateY(-10px);
+  }
+  70% {
+    opacity: 0.7;
+    transform: translateY(-7px);
+  }
+  80% {
+    opacity: 0.8;
+    transform: translateY(-3px);
+  }
+  90% {
+    opacity: 0.9;
+    transform: translateY(0px);
+  } */
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+/* LOADING */
+
+.loading {
+  width: 30px; /* control the size */
+  aspect-ratio: 1;
+  display: grid;
+  -webkit-mask: conic-gradient(from 22deg, #0003, #000);
+  mask: conic-gradient(from 22deg, #0003, #000);
+  animation: load 1s steps(8) infinite;
+}
+.loading,
+.loading:before {
+  --_g: linear-gradient(#d1e5cd 0 0) 50%; /* update the color here */
+  background: var(--_g) / 34% 8% space no-repeat,
+    var(--_g) / 8% 34% no-repeat space;
+}
+.loading:before {
+  content: "";
+  transform: rotate(45deg);
+}
+@keyframes load {
+  from {
+    transform: rotate(0turn);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+/* CRT */
+
+@keyframes flicker {
+  0% {
+    opacity: 0.27861;
+  }
+  5% {
+    opacity: 0.34769;
+  }
+  10% {
+    opacity: 0.23604;
+  }
+  15% {
+    opacity: 0.90626;
+  }
+  20% {
+    opacity: 0.18128;
+  }
+  25% {
+    opacity: 0.83891;
+  }
+  30% {
+    opacity: 0.65583;
+  }
+  35% {
+    opacity: 0.67807;
+  }
+  40% {
+    opacity: 0.26559;
+  }
+  45% {
+    opacity: 0.84693;
+  }
+  50% {
+    opacity: 0.96019;
+  }
+  55% {
+    opacity: 0.08594;
+  }
+  60% {
+    opacity: 0.20313;
+  }
+  65% {
+    opacity: 0.71988;
+  }
+  70% {
+    opacity: 0.53455;
+  }
+  75% {
+    opacity: 0.37288;
+  }
+  80% {
+    opacity: 0.71428;
+  }
+  85% {
+    opacity: 0.70419;
+  }
+  90% {
+    opacity: 0.7003;
+  }
+  95% {
+    opacity: 0.36108;
+  }
+  100% {
+    opacity: 0.24387;
+  }
+}
+
+@keyframes textShadow {
+  0% {
+    text-shadow: 0.4389924193300864px 0 1px var(--flicker-1),
+      -0.4389924193300864px 0 1px var(--flicker-2), 0 0 3px;
+  }
+  5% {
+    text-shadow: 2.7928974010788217px 0 1px var(--flicker-1),
+      -2.7928974010788217px 0 1px var(--flicker-2), 0 0 3px;
+  }
+  10% {
+    text-shadow: 0.02956275843481219px 0 1px var(--flicker-1),
+      -0.02956275843481219px 0 1px var(--flicker-2), 0 0 3px;
+  }
+  15% {
+    text-shadow: 0.40218538552878136px 0 1px var(--flicker-1),
+      -0.40218538552878136px 0 1px var(--flicker-2), 0 0 3px;
+  }
+  20% {
+    text-shadow: 3.4794037899852017px 0 1px var(--flicker-1),
+      -3.4794037899852017px 0 1px var(--flicker-2), 0 0 3px;
+  }
+  25% {
+    text-shadow: 1.6125630401149584px 0 1px var(--flicker-1),
+      -1.6125630401149584px 0 1px var(--flicker-2), 0 0 3px;
+  }
+  30% {
+    text-shadow: 0.7015590085143956px 0 1px var(--flicker-1),
+      -0.7015590085143956px 0 1px var(--flicker-2), 0 0 3px;
+  }
+  35% {
+    text-shadow: 3.896914047650351px 0 1px var(--flicker-1),
+      -3.896914047650351px 0 1px var(--flicker-2), 0 0 3px;
+  }
+  40% {
+    text-shadow: 3.870905614848819px 0 1px var(--flicker-1),
+      -3.870905614848819px 0 1px var(--flicker-2), 0 0 3px;
+  }
+  45% {
+    text-shadow: 2.231056963361899px 0 1px var(--flicker-1),
+      -2.231056963361899px 0 1px var(--flicker-2), 0 0 3px;
+  }
+  50% {
+    text-shadow: 0.08084290417898504px 0 1px var(--flicker-1),
+      -0.08084290417898504px 0 1px var(--flicker-2), 0 0 3px;
+  }
+  55% {
+    text-shadow: 2.3758461067427543px 0 1px var(--flicker-1),
+      -2.3758461067427543px 0 1px var(--flicker-2), 0 0 3px;
+  }
+  60% {
+    text-shadow: 2.202193051050636px 0 1px var(--flicker-1),
+      -2.202193051050636px 0 1px var(--flicker-2), 0 0 3px;
+  }
+  65% {
+    text-shadow: 2.8638780614874975px 0 1px var(--flicker-1),
+      -2.8638780614874975px 0 1px var(--flicker-2), 0 0 3px;
+  }
+  70% {
+    text-shadow: 0.48874025155497314px 0 1px var(--flicker-1),
+      -0.48874025155497314px 0 1px var(--flicker-2), 0 0 3px;
+  }
+  75% {
+    text-shadow: 1.8948491305757957px 0 1px var(--flicker-1),
+      -1.8948491305757957px 0 1px var(--flicker-2), 0 0 3px;
+  }
+  80% {
+    text-shadow: 0.0833037308038857px 0 1px var(--flicker-1),
+      -0.0833037308038857px 0 1px var(--flicker-2), 0 0 3px;
+  }
+  85% {
+    text-shadow: 0.09769827255241735px 0 1px var(--flicker-1),
+      -0.09769827255241735px 0 1px var(--flicker-2), 0 0 3px;
+  }
+  90% {
+    text-shadow: 3.443339761481782px 0 1px var(--flicker-1),
+      -3.443339761481782px 0 1px var(--flicker-2), 0 0 3px;
+  }
+  95% {
+    text-shadow: 2.1841838852799786px 0 1px var(--flicker-1),
+      -2.1841838852799786px 0 1px var(--flicker-2), 0 0 3px;
+  }
+  100% {
+    text-shadow: 2.6208764473832513px 0 1px var(--flicker-1),
+      -2.6208764473832513px 0 1px var(--flicker-2), 0 0 3px;
+  }
+}
+.crt::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(18, 16, 16, 0.1);
+  opacity: 0;
+  z-index: 2;
+  pointer-events: none;
+  animation: flicker 0.15s infinite;
+}
+.crt::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+    linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 0.06),
+      rgba(0, 255, 0, 0.02),
+      rgba(0, 0, 255, 0.06)
+    );
+  z-index: 2;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+}
+.crt {
+  animation: textShadow 1.6s infinite;
+}
